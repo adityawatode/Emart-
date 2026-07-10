@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone | Online Shopping</title>
+    <link rel="stylesheet" href="css/utilis.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="topbar">
+            <a class="brand" href="#" aria-label="Flipkart home">
+                <img src="flipkart logo.png" alt="Flipkart" class="brand-logo">
+                <span class="brand-tagline">Explore <b>Plus</b> ✦</span>
+            </a>
+            <div class="search-bar">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="search" aria-label="Search products" placeholder="Search for products, brands and more">
+                <button type="button">Search</button>
+            </div>
+            <div class="top-actions">
+                <button class="text-btn">Login</button>
+                <button class="text-btn">More <span aria-hidden="true">⌄</span></button>
+                <button class="cart-btn"><span aria-hidden="true">🛒</span> Cart</button>
+            </div>
+        </div>
+        <nav class="main-nav" aria-label="Product categories">
+            <button class="nav-chip active">Top Offers</button>
+            <button class="nav-chip">Mobiles</button>
+            <button class="nav-chip">Electronics</button>
+            <button class="nav-chip">Fashion</button>
+            <button class="nav-chip">Home</button>
+            <button class="nav-chip">Beauty</button>
+            <button class="nav-chip">Toys</button>
+            <button class="nav-chip">Appliances</button>
+            <button class="nav-chip">Travel</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="categories" class="category-strip" aria-label="Shop by category">
+            <div class="category-card"><img src="https://img.icons8.com/fluency/96/000000/iphone.png" alt=""><span>Mobiles</span></div>
+            <div class="category-card"><img src="https://img.icons8.com/fluency/96/000000/laptop.png" alt=""><span>Electronics</span></div>
+            <div class="category-card"><img src="https://img.icons8.com/?size=100&id=U1DbmZzsp9bC&format=png&color=000000" alt=""><span>Fashion</span></div>
+            <div class="category-card"><img src="https://img.icons8.com/fluency/96/000000/sofa.png" alt=""><span>Home & Furniture</span></div>
+            <div class="category-card"><img src="https://img.icons8.com/?size=100&id=2jgT7KxoKB2h&format=png&color=000000" alt=""><span>Appliances</span></div>
+            <div class="category-card"><img src="https://img.icons8.com/fluency/96/000000/airplane-mode-on.png" alt=""><span>Travel</span></div>
+        </section>
+
+        <section class="hero-section" aria-label="Seasonal offers">
+            <div class="hero-copy">
+                <span class="eyebrow">BIG SAVING DAYS</span>
+                <h1>Everything you love,<br><strong>at prices you'll love.</strong></h1>
+                <p>Upgrade your everyday with exciting offers across mobiles, fashion, home and more.</p>
+                <div class="hero-actions">
+                    <a href="#deals" class="btn btn-primary">Shop Now</a>
+                    <a href="#categories" class="btn btn-outline">Explore Categories</a>
+                </div>
+            </div>
+            <div class="hero-banner">
+                <div class="sale-label">Flipkart<br><strong>Big Saving Days</strong></div>
+                <div class="sale-offer"><span>UP TO</span><b>80%</b><span>OFF</span></div>
+                <p>On top brands in fashion, electronics & home</p>
+                <div class="banner-badges"><span>⚡ Limited Time</span><span>Free Delivery</span></div>
+            </div>
+        </section>
+
+        <section id="deals" class="product-section deal-section">
+            <div class="section-header">
+                <div><p class="section-kicker">TODAY'S PICKS</p><h2>Best Deals on Top Products</h2><p>Grab them before they are gone.</p></div>
+                <a href="#" class="link-secondary">View All <span>›</span></a>
+            </div>
+            <div class="grid-cards">
+                <article class="product-card"><span class="offer-pill">20% off</span><img src="https://img.global.news.samsung.com/uk/wp-content/uploads/2020/04/SM-M315F_002_combo_Black_3000.png" alt="Samsung Galaxy M31s"><div class="card-content"><p class="card-category">Mobiles</p><h3>Samsung Galaxy M31s</h3><div class="price-row"><span class="price">₹17,999</span><span class="discount">20% off</span></div><p class="card-meta">4.4 ★ | 50,000+ ratings</p></div></article>
+                <article class="product-card"><span class="offer-pill">35% off</span><img src="https://indiannest.in/cdn/shop/files/IMG-20231018-WA0003.jpg?v=1697653683&width=1445" alt="L-Shaped Sofa"><div class="card-content"><p class="card-category">Home</p><h3>Modern L-Shaped Sofa</h3><div class="price-row"><span class="price">₹24,999</span><span class="discount">35% off</span></div><p class="card-meta">Free delivery | 7 days replacement</p></div></article>
+                <article class="product-card"><span class="offer-pill">50% off</span><img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQyhcmGY8NNUSLWzbJWbP0138x2uPZn1PUoRMv_sqev-j9oyvPJnYl_sA-KTvhINFrxeNcisDTWIIL7uWHHey0bGBCtJcPXkyG5a1kAw83osMcKor7SZr8Zjap7Kh9kXO1sa5NLfxy_1Q&usqp=CAc" alt="Men's Jacket"><div class="card-content"><p class="card-category">Fashion</p><h3>Men's Bomber Jacket</h3><div class="price-row"><span class="price">₹999</span><span class="discount">50% off</span></div><p class="card-meta">Trendy winter wear</p></div></article>
+                <article class="product-card"><span class="offer-pill">45% off</span><img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQrCG1dhELsmtBIk88h7CswpYt_8PjbZSFm6Ww7cc63KRaPDAujuNVvbA7durOhoenLJmelDXeG9TAQUxjc8jT-oUQpEr4jJ0Cyoaqzm7ob5XqGwSykjEHVnG7EUdHrKBhgRm8kng&usqp=CAc" alt="Backpack"><div class="card-content"><p class="card-category">Accessories</p><h3>Travel Backpack</h3><div class="price-row"><span class="price">₹549</span><span class="discount">45% off</span></div><p class="card-meta">Durable, water-resistant carry</p></div></article>
+            </div>
+        </section>
+
+        <section class="feature-banner">
+            <div class="feature-card plus-card"><p class="section-kicker">MEMBERSHIP BENEFITS</p><h2>Flipkart Plus Zone</h2><p>Unlock extra savings, faster deliveries and special rewards on every purchase.</p><a href="#" class="link-secondary">Know More <span>›</span></a></div>
+            <div class="feature-card bank-card"><p>Instant savings with</p><h2>10% Bank Offer</h2><span>On select credit & debit cards</span><a href="#" class="btn btn-light">Check Offers</a></div>
+        </section>
+
+        <section class="product-section">
+            <div class="section-header"><div><p class="section-kicker">PICKED FOR YOU</p><h2>Recommended for You</h2><p>Explore curated picks from top brands.</p></div><a href="#" class="link-secondary">View All <span>›</span></a></div>
+            <div class="grid-cards">
+                <article class="product-card"><img src="https://rukminim2.flixcart.com/image/1280/1280/xif0q/headphone/b/b/5/earbuds-techio-original-imahm32tnqyyd4jg.jpeg?q=90" alt="Wireless Earbuds"><div class="card-content"><p class="card-category">Audio</p><h3>True Wireless Earbuds</h3><div class="price-row"><span class="price">₹1,299</span><span class="discount">35% off</span></div><p class="card-meta">Clear sound | Long battery</p></div></article>
+                <article class="product-card"><img src="https://rukminim2.flixcart.com/image/1280/1280/xif0q/motion-controller/0/u/z/5-dualsense-wireless-remote-for-ps5-console-disc-digital-edition-original-imahhxfsgseyyqtj.jpeg?q=90" alt="Wireless Gaming Controller"><div class="card-content"><p class="card-category">Gaming</p><h3>Wireless Gaming Controller</h3><div class="price-row"><span class="price">₹1,699</span><span class="discount">40% off</span></div><p class="card-meta">Compatible with PC and console</p></div></article>
+                <article class="product-card"><img src="https://rukminim2.flixcart.com/image/1280/1280/xif0q/air-purifier/c/t/m/-original-imahz9zyzqkq8qwt.jpeg?q=90" alt="Air Purifier"><div class="card-content"><p class="card-category">Home Appliances</p><h3>Air Purifier</h3><div class="price-row"><span class="price">₹7,499</span><span class="discount">30% off</span></div><p class="card-meta">Fresh air for every room</p></div></article>
+                <article class="product-card"><img src="https://rukminim2.flixcart.com/image/1280/1280/xif0q/shirt/b/t/n/xl-chkesdsa01-dimmy-original-imahmfu3sqrmh3q8.jpeg?q=90" alt="Men's Shirt"><div class="card-content"><p class="card-category">Fashion</p><h3>Premium Men's Shirt</h3><div class="price-row"><span class="price">₹799</span><span class="discount">55% off</span></div><p class="card-meta">Comfort fit, stylish look</p></div></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><div class="footer-grid"><div><h3>ABOUT</h3><a href="#">Contact Us</a><a href="#">About Us</a><a href="#">Careers</a></div><div><h3>HELP</h3><a href="#">Payments</a><a href="#">Shipping</a><a href="#">Cancellation & Returns</a></div><div><h3>POLICY</h3><a href="#">Return Policy</a><a href="#">Terms Of Use</a><a href="#">Security</a></div><div class="footer-address"><h3>Registered Office Address</h3><p>Flipkart Clone Internet Private Limited,<br>Building 1, Bengaluru, India</p></div></div><div class="footer-bottom"><span>© 2026 Flipkart Clone</span><span>🛡 Safe and Secure Payments</span></div></footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
