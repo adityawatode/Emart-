@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     interactionStyles.textContent = `
         [hidden] { display: none !important; }
         .product-card, .category-card { cursor: pointer; }
-        .product-card:focus-visible, .category-card:focus-visible { outline: 3px solid #2874f0; outline-offset: 3px; }
-        .site-toast { position: fixed; right: 24px; bottom: 24px; z-index: 20; max-width: min(360px, calc(100vw - 48px)); padding: 14px 18px; border-radius: 8px; background: #212121; color: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.2); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
+        .product-card:focus-visible, .category-card:focus-visible { outline: 3px solid #9bbd72; outline-offset: 3px; }
+        .site-toast { position: fixed; right: 24px; bottom: 24px; z-index: 20; max-width: min(360px, calc(100vw - 48px)); padding: 14px 18px; border-radius: 10px; background: #202c25; color: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.2); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
         .site-toast.is-visible { opacity: 1; transform: translateY(0); }
         .interactive-panel { position: fixed; z-index: 30; top: 50%; left: 50%; width: min(430px, calc(100vw - 32px)); max-height: min(80vh, 600px); overflow: auto; transform: translate(-50%, -50%); padding: 30px; border: 0; border-radius: 16px; background: #fff; box-shadow: 0 20px 70px rgba(15,23,42,.3); }
         .interactive-panel::before { content: ''; position: fixed; z-index: -1; inset: 0; background: rgba(15,23,42,.45); }
@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .login-form label { display: grid; gap: 8px; font-weight: 600; }
         .login-form input { padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font: inherit; }
         .login-form button { border: 0; cursor: pointer; }
-        .search-empty-state { padding: 24px; text-align: center; color: #6b7280; background: #fff; border-radius: 12px; }
+        .search-empty-state { padding: 24px; text-align: center; color: #748078; background: #fff; border-radius: 12px; }
         .product-detail { width: min(760px, calc(100vw - 32px)); display: grid; grid-template-columns: minmax(180px, .85fr) 1.15fr; gap: 28px; }
         .product-detail-image { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: #f3f4f6; }
-        .product-detail-category { margin-bottom: 8px; color: #2874f0 !important; font-weight: 700; }
-        .product-detail-price { margin: 14px 0 8px; font-size: 1.6rem; color: #212121; }
-        .product-detail-discount { color: #10b981 !important; font-weight: 700; }
-        .product-detail-meta { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e5e7eb; }
+        .product-detail-category { margin-bottom: 8px; color: #246b4a !important; font-weight: 700; }
+        .product-detail-price { margin: 14px 0 8px; font-size: 1.6rem; color: #202c25; }
+        .product-detail-discount { color: #246b4a !important; font-weight: 700; }
+        .product-detail-meta { margin-top: 14px; padding-top: 14px; border-top: 1px solid #e8e9e2; }
         .detail-add-button { width: 100%; margin-top: 22px; border: 0; cursor: pointer; }
         @media (max-width: 560px) { .product-detail { grid-template-columns: 1fr; gap: 18px; } }
     `;
@@ -64,6 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
         showToast.timer = window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
     };
 
+    try {
+        cart = window.emartCart.getItems();
+    } catch (error) {
+        console.error('Unable to load the saved cart.', error);
+        showToast('Your saved cart could not be loaded. Please check your browser storage settings.');
+    }
+
     const filterProducts = (query = '') => {
         const term = query.trim().toLowerCase();
         let visible = 0;
@@ -92,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateCart = () => {
-        const count = cart.length;
-        cartButton.textContent = count ? `Cart (${count})` : 'Cart';
+        const count = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+        cartButton.querySelector('.cart-label').textContent = count ? `Cart (${count})` : 'Cart';
         cartButton.setAttribute('aria-label', `${count} item${count === 1 ? '' : 's'} in cart`);
     };
 
@@ -107,12 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.setAttribute('aria-modal', 'true');
         panel.tabIndex = -1;
 
-        if (type === 'cart') {
-            const items = cart.length
-                ? `<ul>${cart.map((item) => `<li><span>${item.name}</span><strong>${item.price}</strong></li>`).join('')}</ul>`
-                : '<p>Your cart is empty. Click a product to add it.</p>';
-            panel.innerHTML = `<button class="panel-close" aria-label="Close">×</button><h2>Your Cart</h2>${items}`;
-        } else if (type === 'login') {
+        if (type === 'login') {
             panel.innerHTML = `<button class="panel-close" aria-label="Close">×</button><h2>Welcome back</h2><p>Sign in to save your items and track orders.</p><form class="login-form"><label>Email or mobile number<input required type="text" autocomplete="username"></label><button class="btn btn-primary" type="submit">Continue</button></form>`;
         } else {
             panel.innerHTML = '<button class="panel-close" aria-label="Close">×</button><h2>More on Flipkart</h2><p>Explore orders, wishlists, customer care, and seller services.</p>';
@@ -159,7 +161,19 @@ document.addEventListener('DOMContentLoaded', () => {
         closeButton.textContent = String.fromCharCode(215);
         closeButton.addEventListener('click', closePanels);
         panel.querySelector('.detail-add-button').addEventListener('click', () => {
-            cart.push(product);
+            const existingItem = cart.find((item) => item.name === product.name);
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            try {
+                window.emartCart.saveItems(cart);
+            } catch (error) {
+                console.error('Unable to save the cart.', error);
+                showToast('Your item could not be saved. Please check your browser storage settings.');
+                return;
+            }
             updateCart();
             closePanels();
             showToast(`${product.name} added to cart`);
@@ -223,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    cartButton.addEventListener('click', () => openPanel('cart'));
+    updateCart();
     loginButton.addEventListener('click', () => openPanel('login'));
     moreButton.addEventListener('click', () => openPanel('more'));
     document.addEventListener('keydown', (event) => {

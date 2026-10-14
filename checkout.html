@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f5f0">
+    <title>Checkout | Ekart</title>
+    <link rel="stylesheet" href="css/utilis.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="checkout-page">
+    <div class="announcement-bar">
+        <span>EKART DAILY</span>
+        <p>Thoughtful finds. Better prices. Delivered to your door.</p>
+        <a href="index.html#deals">Explore today's edit <span aria-hidden="true">↗</span></a>
+    </div>
+    <header class="site-header">
+        <div class="cart-topbar">
+            <a class="brand" href="index.html" aria-label="Ekart home">
+                <img src="EKART.png" alt="Ekart" class="brand-logo">
+                <span class="brand-tagline">YOUR EVERYDAY MARKETPLACE</span>
+            </a>
+            <div class="cart-header-note"><span aria-hidden="true">🔒</span> Secure checkout</div>
+            <a class="cart-btn" href="cart.html" aria-label="Cart">
+                <span aria-hidden="true">🛒</span><span class="cart-label">Cart</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <nav class="cart-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span aria-hidden="true">/</span>
+            <a href="cart.html">Your cart</a><span aria-hidden="true">/</span>
+            <span aria-current="page">Checkout</span>
+        </nav>
+
+        <ol class="checkout-progress" aria-label="Checkout progress">
+            <li class="is-complete"><span>1</span> Cart</li>
+            <li class="is-current" aria-current="step"><span>2</span> Delivery &amp; payment</li>
+            <li><span>3</span> Confirmation</li>
+        </ol>
+
+        <div class="checkout-heading">
+            <div>
+                <p class="section-kicker">ALMOST YOURS</p>
+                <h1>Checkout</h1>
+                <p>Add your delivery details and choose how you'd like to pay.</p>
+            </div>
+            <a class="cart-continue-link" href="cart.html"><span aria-hidden="true">←</span> Back to cart</a>
+        </div>
+
+        <div id="checkout-empty" class="checkout-empty" hidden>
+            <div class="cart-empty-icon" aria-hidden="true">🛍️</div>
+            <h2>Your cart is empty</h2>
+            <p>Add something to your cart before heading to checkout.</p>
+            <a class="btn btn-primary" href="index.html#deals">Explore the store <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div id="checkout-layout" class="checkout-layout">
+            <form id="checkout-form" class="checkout-form" novalidate>
+                <section class="checkout-card" aria-labelledby="delivery-heading">
+                    <div class="checkout-section-heading">
+                        <span class="checkout-step-number">01</span>
+                        <div>
+                            <h2 id="delivery-heading">Delivery address</h2>
+                            <p>Where should we bring your order?</p>
+                        </div>
+                    </div>
+                    <div class="checkout-fields">
+                        <label class="checkout-field checkout-field-wide">
+                            <span>Full name</span>
+                            <input name="fullName" type="text" autocomplete="name" placeholder="e.g. Aditi Sharma" required minlength="2" maxlength="80">
+                            <small class="field-error" data-error-for="fullName"></small>
+                        </label>
+                        <label class="checkout-field">
+                            <span>Mobile number</span>
+                            <input name="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" required pattern="[6-9][0-9]{9}" maxlength="10">
+                            <small class="field-error" data-error-for="phone"></small>
+                        </label>
+                        <label class="checkout-field">
+                            <span>PIN code</span>
+                            <input name="pincode" type="text" autocomplete="postal-code" inputmode="numeric" placeholder="6-digit PIN code" required pattern="[1-9][0-9]{5}" maxlength="6">
+                            <small class="field-error" data-error-for="pincode"></small>
+                        </label>
+                        <label class="checkout-field checkout-field-wide">
+                            <span>Flat, house no., building</span>
+                            <input name="address" type="text" autocomplete="address-line1" placeholder="House / flat number and street" required minlength="5" maxlength="160">
+                            <small class="field-error" data-error-for="address"></small>
+                        </label>
+                        <label class="checkout-field">
+                            <span>City</span>
+                            <input name="city" type="text" autocomplete="address-level2" placeholder="Your city" required minlength="2" maxlength="60">
+                            <small class="field-error" data-error-for="city"></small>
+                        </label>
+                        <label class="checkout-field">
+                            <span>State</span>
+                            <input name="state" type="text" autocomplete="address-level1" placeholder="Your state" required minlength="2" maxlength="60">
+                            <small class="field-error" data-error-for="state"></small>
+                        </label>
+                    </div>
+                    <fieldset class="address-type">
+                        <legend>Save address as</legend>
+                        <label><input type="radio" name="addressType" value="Home" checked><span>Home</span></label>
+                        <label><input type="radio" name="addressType" value="Work"><span>Work</span></label>
+                    </fieldset>
+                </section>
+
+                <section class="checkout-card" aria-labelledby="payment-heading">
+                    <div class="checkout-section-heading">
+                        <span class="checkout-step-number">02</span>
+                        <div>
+                            <h2 id="payment-heading">Payment method</h2>
+                            <p>Choose how you want to complete your demo order.</p>
+                        </div>
+                    </div>
+                    <fieldset class="payment-options">
+                        <legend class="visually-hidden">Choose a payment method</legend>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="Cash on delivery" checked>
+                            <span class="payment-option-icon" aria-hidden="true">₹</span>
+                            <span class="payment-option-copy"><strong>Cash on delivery</strong><small>Pay when your order arrives</small></span>
+                            <span class="payment-radio" aria-hidden="true"></span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="UPI at delivery">
+                            <span class="payment-option-icon payment-option-upi" aria-hidden="true">UPI</span>
+                            <span class="payment-option-copy"><strong>UPI at delivery</strong><small>Pay with your UPI app when it arrives</small></span>
+                            <span class="payment-radio" aria-hidden="true"></span>
+                        </label>
+                    </fieldset>
+                    <p class="checkout-demo-note"><span aria-hidden="true">ⓘ</span> This is a demo checkout. No payment details are collected or processed.</p>
+                </section>
+
+                <p id="checkout-error" class="cart-error checkout-error" role="alert" hidden></p>
+                <button class="btn btn-primary place-order-button" type="submit">Place demo order <span aria-hidden="true">→</span></button>
+                <p class="checkout-terms">Demo order only. No payment or real delivery is arranged.</p>
+            </form>
+
+            <aside id="checkout-summary" class="cart-summary checkout-summary" aria-label="Order summary">
+                <div class="checkout-summary-heading">
+                    <h2>Your order</h2>
+                    <a href="cart.html">Edit cart</a>
+                </div>
+                <div id="checkout-items" class="checkout-items"></div>
+                <div class="summary-lines">
+                    <div><span>Subtotal</span><strong id="checkout-subtotal">₹0</strong></div>
+                    <div><span>Delivery</span><strong class="summary-free">FREE</strong></div>
+                    <div><span>You save</span><strong id="checkout-discount">—</strong></div>
+                </div>
+                <div class="summary-total"><span>Total</span><strong id="checkout-total">₹0</strong></div>
+                <p class="summary-tax-note">Inclusive of all applicable taxes</p>
+                <div class="summary-trust">
+                    <span aria-hidden="true">🔒</span>
+                    <p>Safe &amp; secure checkout<br><small>Your payment details are never stored.</small></p>
+                </div>
+            </aside>
+        </div>
+
+        <section id="order-confirmation" class="order-confirmation" aria-live="polite" hidden>
+            <div class="confirmation-check" aria-hidden="true">✓</div>
+            <p class="section-kicker">ORDER PLACED</p>
+            <h2>Thanks for your order!</h2>
+            <p class="confirmation-copy">Your demo order is confirmed. No payment was collected or processed.</p>
+            <div class="confirmation-details">
+                <div><span>Demo order number</span><strong id="confirmation-order-id"></strong></div>
+                <div><span>Delivering to</span><strong id="confirmation-address"></strong></div>
+                <div><span>Payment choice</span><strong id="confirmation-payment"></strong></div>
+                <div><span>Order total</span><strong id="confirmation-total"></strong></div>
+            </div>
+            <a class="btn btn-primary" href="index.html">Continue shopping <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="cart-footer">
+        <span>© 2026 Ekart</span>
+        <span>Made for the things you love.</span>
+    </footer>
+    <script src="js/cart-storage.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

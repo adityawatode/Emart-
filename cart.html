@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f5f0">
+    <title>Your Cart | Ekart</title>
+    <link rel="stylesheet" href="css/utilis.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="cart-page">
+    <div class="announcement-bar">
+        <span>EKART DAILY</span>
+        <p>Thoughtful finds. Better prices. Delivered to your door.</p>
+        <a href="index.html#deals">Explore today's edit <span aria-hidden="true">↗</span></a>
+    </div>
+    <header class="site-header">
+        <div class="cart-topbar">
+            <a class="brand" href="index.html" aria-label="Ekart home">
+                <img src="EKART.png" alt="Ekart" class="brand-logo">
+                <span class="brand-tagline">YOUR EVERYDAY MARKETPLACE</span>
+            </a>
+            <div class="cart-header-note"><span aria-hidden="true">🔒</span> Secure checkout</div>
+            <a class="cart-btn" href="cart.html" aria-label="Cart">
+                <span aria-hidden="true">🛒</span><span class="cart-label">Cart</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="cart-main">
+        <nav class="cart-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Your cart</span>
+        </nav>
+        <div class="cart-heading">
+            <div>
+                <p class="section-kicker">YOUR PICKS, ALL IN ONE PLACE</p>
+                <h1>Your cart <span id="cart-item-count"></span></h1>
+            </div>
+            <a class="cart-continue-link" href="index.html#deals"><span aria-hidden="true">←</span> Continue shopping</a>
+        </div>
+
+        <div class="cart-layout">
+            <section class="cart-items-panel" aria-label="Items in your cart">
+                <div class="cart-panel-heading">
+                    <h2>Shopping bag</h2>
+                    <span id="cart-item-label"></span>
+                </div>
+                <div id="cart-items" class="cart-items"></div>
+                <div id="cart-empty" class="cart-empty" hidden>
+                    <div class="cart-empty-icon" aria-hidden="true">🛍️</div>
+                    <h2>Your cart is taking a little break</h2>
+                    <p>Find something lovely in the store and it will show up here.</p>
+                    <a class="btn btn-primary" href="index.html#deals">Explore the store <span aria-hidden="true">↗</span></a>
+                </div>
+                <div id="cart-delivery-note" class="cart-delivery-note">
+                    <span class="delivery-check" aria-hidden="true">✓</span>
+                    <span>You're all set for <strong>free delivery</strong>.</span>
+                </div>
+            </section>
+
+            <aside id="cart-summary" class="cart-summary" aria-label="Order summary">
+                <h2>Order summary</h2>
+                <p class="summary-caption">A little overview before checkout.</p>
+                <div class="summary-lines">
+                    <div><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div>
+                    <div><span>Delivery</span><strong class="summary-free">FREE</strong></div>
+                    <div><span>You save</span><strong id="cart-discount">—</strong></div>
+                </div>
+                <div class="summary-total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+                <p class="summary-tax-note">Inclusive of all applicable taxes</p>
+                <a id="checkout-button" class="btn btn-primary checkout-button" href="checkout.html">
+                    Continue to checkout <span aria-hidden="true">→</span>
+                </a>
+                <div class="summary-trust">
+                    <span aria-hidden="true">🔒</span>
+                    <p>Safe & secure checkout<br><small>Your payment details are always protected.</small></p>
+                </div>
+                <div class="payment-methods" aria-label="Accepted payment methods">
+                    <span>UPI</span><span>VISA</span><span>RuPay</span><span>COD</span>
+                </div>
+            </aside>
+        </div>
+        <p id="cart-error" class="cart-error" role="alert" hidden></p>
+    </main>
+
+    <footer class="cart-footer">
+        <span>© 2026 Ekart</span>
+        <span>Made for the things you love.</span>
+    </footer>
+    <script src="js/cart-storage.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

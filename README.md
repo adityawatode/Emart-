@@ -1,14 +1,16 @@
 # Flipkart Clone
 
-A responsive front-end shopping website inspired by Flipkart. The project demonstrates a modern e-commerce homepage with product discovery, search, category filtering, product-detail dialogs, and a simple in-browser cart.
+A responsive front-end shopping website with a fresh, editorial marketplace design. The project demonstrates product discovery, search, category filtering, product-detail dialogs, and a simple in-browser cart.
 
 ## Features
 
-- Flipkart-style header, search bar, category navigation, offers, product grids, and footer
+- Responsive marketplace header, search bar, category navigation, offers, product grids, and footer
+- Warm neutral palette, rounded surfaces, and a forest-green accent system
 - Responsive layout for desktop, tablet, and mobile screens
 - Live product search and category filtering
 - Product detail pop-up with **Add to Cart** action
-- Cart counter and cart preview dialog
+- Persistent cart with quantity controls, item removal, and an order summary
+- Checkout page with delivery details, payment selection, and a demo-only order confirmation
 - Login and "More" interaction dialogs
 
 ## Tech Stack
@@ -23,13 +25,18 @@ A responsive front-end shopping website inspired by Flipkart. The project demons
 ```text
 .
 ├── index.html          # Main storefront page
+├── cart.html           # Persistent shopping cart
+├── checkout.html       # Delivery and payment selection
 ├── css/
-│   ├── style.css       # Main visual styles
-│   ├── responsive.css  # Responsive breakpoints
+│   ├── style.css       # Main visual styles and responsive breakpoints
+│   ├── responsive.css  # Compatibility stylesheet
 │   └── utilis.css      # Small utility classes
 ├── js/
-│   └── index.js        # Search, cart, dialogs, and UI interactions
-├── flipkart logo.png   # Brand image
+│   ├── index.js        # Search, product dialogs, and storefront interactions
+│   ├── cart.js         # Cart page rendering and controls
+│   ├── checkout.js     # Checkout validation and demo confirmation
+│   └── cart-storage.js # Shared browser storage for cart items
+├── EKART.png           # Brand image
 └── logo.svg            # Logo asset
 ```
 
@@ -43,14 +50,14 @@ No build step or package installation is required.
 ## Notes
 
 - Product images are loaded from external image URLs, so an internet connection is needed for them to display.
-- The cart is stored only while the current page is open; it is not connected to a backend or database.
+- Cart items are stored in browser local storage and are not connected to a backend or database.
+- Checkout is a front-end demo; no payment is collected or processed.
 
 ## Future Improvements
 
-- Add dedicated product, login, and cart pages
-- Store cart data in `localStorage`
+- Add a dedicated login page
 - Add product data from a JSON file or API
-- Add authentication and checkout integration
+- Add authentication and payment-provider integration
 
 ## License
 
