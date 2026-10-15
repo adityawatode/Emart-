@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.tabIndex = -1;
 
         if (type === 'login') {
-            panel.innerHTML = `<button class="panel-close" aria-label="Close">×</button><h2>Welcome back</h2><p>Sign in to save your items and track orders.</p><form class="login-form"><label>Email or mobile number<input required type="text" autocomplete="username"></label><button class="btn btn-primary" type="submit">Continue</button></form>`;
+            panel.innerHTML = `<button class="panel-close" aria-label="Close">×</button><h2>Welcome back</h2><p>Sign in to save your items and track orders.</p><form class="login-form"><label>Email or mobile number<input required type="text" autocomplete="username"></label><button class="btn btn-primary" type="submit">Continue</button></form><p class="signup-login">New to Ekart? <a href="signup.html">Create an account</a></p>`;
         } else {
             panel.innerHTML = '<button class="panel-close" aria-label="Close">×</button><h2>More on Flipkart</h2><p>Explore orders, wishlists, customer care, and seller services.</p>';
         }
@@ -240,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
     loginButton.addEventListener('click', () => openPanel('login'));
     moreButton.addEventListener('click', () => openPanel('more'));
+    if (window.location.hash === '#login') loginButton.click();
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') closePanels();
     });

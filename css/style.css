@@ -361,6 +361,79 @@ main { max-width: 1320px; margin: auto; padding: 26px 28px 44px; }
 
 [hidden] { display: none !important; }
 
+.signup-page { min-height: 100vh; }
+.signup-header {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1180px;
+    margin: auto;
+    padding: 14px 28px;
+}
+.signup-back-link { color: var(--green); font-size: 12px; font-weight: 650; }
+.signup-back-link span { margin-left: 5px; }
+.signup-main {
+    max-width: 1180px;
+    min-height: calc(100vh - 82px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, .82fr);
+    align-items: center;
+    gap: clamp(38px, 8vw, 100px);
+    margin: auto;
+    padding: 38px 28px 68px;
+}
+.signup-promo { position: relative; overflow: hidden; padding: 38px 0; }
+.signup-promo h1 { position: relative; z-index: 1; margin: 16px 0; font-size: clamp(46px, 6vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -4px; }
+.signup-promo h1 strong { color: var(--green); font-weight: 700; }
+.signup-promo-copy { position: relative; z-index: 1; max-width: 410px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.signup-perks { position: relative; z-index: 1; display: grid; gap: 14px; margin-top: 32px; color: #46534a; font-size: 12px; font-weight: 550; }
+.signup-perks span { display: inline-grid; width: 22px; height: 22px; place-items: center; margin-right: 8px; border-radius: 50%; background: #e4edda; color: var(--green); font-weight: 800; }
+.signup-promo-orbit { position: absolute; right: -15px; bottom: -160px; width: 310px; height: 310px; border: 1px solid #e2e8dc; border-radius: 50%; }
+.signup-promo-orbit::before, .signup-promo-orbit::after { position: absolute; border: 1px solid #e2e8dc; border-radius: 50%; content: ''; }
+.signup-promo-orbit::before { inset: 30px; }
+.signup-promo-orbit::after { inset: 60px; }
+.signup-card { padding: clamp(26px, 4vw, 42px); border: 1px solid var(--line); border-radius: 20px; background: var(--surface); box-shadow: 0 18px 55px rgba(31,56,39,.07); }
+.signup-card h2 { margin-top: 8px; font-size: 27px; letter-spacing: -.8px; }
+.signup-intro { margin-top: 5px; color: var(--muted); font-size: 12px; }
+.signup-form { display: grid; gap: 14px; margin-top: 24px; }
+.signup-field { display: grid; gap: 7px; color: #39463e; font-size: 11px; font-weight: 650; }
+.signup-field input { width: 100%; min-height: 45px; padding: 0 13px; border: 1px solid #dfe4dc; border-radius: 7px; outline: 0; background: #fff; color: var(--ink); font-size: 12px; transition: border-color .2s, box-shadow .2s; }
+.signup-field input::placeholder { color: #9aa39c; font-weight: 400; }
+.signup-field input:focus { border-color: #8fb39a; box-shadow: 0 0 0 3px rgba(36,107,74,.1); }
+.signup-submit { width: 100%; margin-top: 4px; border: 0; cursor: pointer; font-size: 12px; }
+.signup-message { display: none; padding: 11px 12px; border-radius: 7px; background: #edf4e8; color: var(--green-dark); font-size: 11px; line-height: 1.5; }
+.signup-message.is-visible { display: block; }
+.signup-login { margin-top: 20px; color: #5e6a61; font-size: 11px; text-align: center; }
+.signup-login a { color: var(--green); font-weight: 700; }
+.signup-login a:hover, .signup-back-link:hover { text-decoration: underline; }
+.signup-demo-note { margin-top: 17px; color: #929b93; font-size: 10px; text-align: center; }
+
+@media (max-width: 760px) {
+    .signup-header { min-height: 72px; padding: 12px 20px; }
+    .signup-main { min-height: 0; grid-template-columns: 1fr; gap: 10px; padding: 22px 20px 48px; }
+    .signup-promo { padding: 20px 0 25px; }
+    .signup-promo h1 { font-size: clamp(43px, 10vw, 60px); letter-spacing: -3px; }
+    .signup-promo-copy { max-width: 470px; }
+    .signup-perks { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 22px; font-size: 10px; }
+    .signup-perks span { margin-right: 4px; }
+    .signup-promo-orbit { right: -100px; bottom: -180px; }
+    .signup-card { width: min(100%, 520px); justify-self: center; }
+}
+
+@media (max-width: 480px) {
+    .signup-header { padding: 12px 16px; }
+    .signup-back-link { font-size: 10px; }
+    .signup-main { padding: 12px 16px 32px; }
+    .signup-promo { padding: 16px 0 20px; }
+    .signup-promo h1 { font-size: 46px; }
+    .signup-promo-copy { font-size: 12px; }
+    .signup-perks { grid-template-columns: 1fr; gap: 8px; margin-top: 17px; }
+    .signup-card { padding: 25px 20px; border-radius: 15px; }
+    .signup-card h2 { font-size: 23px; }
+}
+
 .cart-topbar {
     min-height: 86px;
     max-width: 1320px;

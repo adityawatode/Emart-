@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f5f0">
+    <title>Create your account | Ekart</title>
+    <link rel="stylesheet" href="css/utilis.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="signup-page">
+    <header class="signup-header">
+        <a class="brand" href="index.html" aria-label="Ekart home">
+            <img src="EKART.png" alt="Ekart" class="brand-logo">
+            <span class="brand-tagline">YOUR EVERYDAY MARKETPLACE</span>
+        </a>
+        <a class="signup-back-link" href="index.html">Back to shopping <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="signup-main">
+        <section class="signup-promo" aria-label="Why shop with Ekart">
+            <p class="section-kicker">A BETTER WAY TO BROWSE</p>
+            <h1>Good finds.<br><strong>Good things.</strong></h1>
+            <p class="signup-promo-copy">Create an account to keep your everyday favourites and shopping details together.</p>
+            <div class="signup-perks">
+                <p><span aria-hidden="true">✓</span> Keep track of your favourite finds</p>
+                <p><span aria-hidden="true">✓</span> Make checkout feel a little easier</p>
+                <p><span aria-hidden="true">✓</span> Stay close to the latest offers</p>
+            </div>
+            <div class="signup-promo-orbit" aria-hidden="true"></div>
+        </section>
+
+        <section class="signup-card" aria-labelledby="signup-heading">
+            <p class="section-kicker">JOIN THE MARKETPLACE</p>
+            <h2 id="signup-heading">Create your account</h2>
+            <p class="signup-intro">It only takes a moment to get started.</p>
+
+            <form id="signup-form" class="signup-form">
+                <label class="signup-field" for="signup-name">
+                    <span>Full name</span>
+                    <input id="signup-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+                </label>
+                <label class="signup-field" for="signup-email">
+                    <span>Email address</span>
+                    <input id="signup-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+                </label>
+                <label class="signup-field" for="signup-password">
+                    <span>Password</span>
+                    <input id="signup-password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+                </label>
+                <label class="signup-field" for="signup-confirm-password">
+                    <span>Confirm password</span>
+                    <input id="signup-confirm-password" name="confirmPassword" type="password" placeholder="Enter your password again" autocomplete="new-password" required>
+                </label>
+                <button class="btn btn-primary signup-submit" type="submit">Create account</button>
+                <p id="signup-message" class="signup-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="signup-login">Already have an account? <a href="index.html#login">Log in</a></p>
+            <p class="signup-demo-note">Account creation is a demo and is not connected to a backend.</p>
+        </section>
+    </main>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>

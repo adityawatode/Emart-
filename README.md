@@ -12,6 +12,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 - Persistent cart with quantity controls, item removal, and an order summary
 - Checkout page with delivery details, payment selection, and a demo-only order confirmation
 - Login and "More" interaction dialogs
+- Responsive signup page with required-field, email, password-length, and password-match validation
 
 ## Tech Stack
 
@@ -25,6 +26,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 ```text
 .
 ├── index.html          # Main storefront page
+├── signup.html         # Account signup form (front-end demo)
 ├── cart.html           # Persistent shopping cart
 ├── checkout.html       # Delivery and payment selection
 ├── css/
@@ -35,6 +37,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 │   ├── index.js        # Search, product dialogs, and storefront interactions
 │   ├── cart.js         # Cart page rendering and controls
 │   ├── checkout.js     # Checkout validation and demo confirmation
+│   ├── signup.js       # Signup form validation
 │   └── cart-storage.js # Shared browser storage for cart items
 ├── EKART.png           # Brand image
 └── logo.svg            # Logo asset
@@ -52,10 +55,10 @@ No build step or package installation is required.
 - Product images are loaded from external image URLs, so an internet connection is needed for them to display.
 - Cart items are stored in browser local storage and are not connected to a backend or database.
 - Checkout is a front-end demo; no payment is collected or processed.
+- Signup is a front-end demo; account details are not saved or sent to a server.
 
 ## Future Improvements
 
-- Add a dedicated login page
 - Add product data from a JSON file or API
 - Add authentication and payment-provider integration
 
