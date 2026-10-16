@@ -11,8 +11,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 - Product detail pop-up with **Add to Cart** action
 - Persistent cart with quantity controls, item removal, and an order summary
 - Checkout page with delivery details, payment selection, and a demo-only order confirmation
-- Login and "More" interaction dialogs
-- Responsive signup page with required-field, email, password-length, and password-match validation
+- Responsive login and signup pages with required-field validation
 
 ## Tech Stack
 
@@ -26,6 +25,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 ```text
 .
 ├── index.html          # Main storefront page
+├── login.html          # Login form (front-end demo)
 ├── signup.html         # Account signup form (front-end demo)
 ├── cart.html           # Persistent shopping cart
 ├── checkout.html       # Delivery and payment selection
@@ -35,6 +35,7 @@ A responsive front-end shopping website with a fresh, editorial marketplace desi
 │   └── utilis.css      # Small utility classes
 ├── js/
 │   ├── index.js        # Search, product dialogs, and storefront interactions
+│   ├── login.js        # Login form validation
 │   ├── cart.js         # Cart page rendering and controls
 │   ├── checkout.js     # Checkout validation and demo confirmation
 │   ├── signup.js       # Signup form validation
@@ -55,7 +56,7 @@ No build step or package installation is required.
 - Product images are loaded from external image URLs, so an internet connection is needed for them to display.
 - Cart items are stored in browser local storage and are not connected to a backend or database.
 - Checkout is a front-end demo; no payment is collected or processed.
-- Signup is a front-end demo; account details are not saved or sent to a server.
+- Login and signup are front-end demos; account details are not saved or sent to a server.
 
 ## Future Improvements
 

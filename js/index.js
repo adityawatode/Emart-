@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .panel-close { position: absolute; top: 12px; right: 14px; border: 0; background: transparent; color: #4b5563; font-size: 1.8rem; cursor: pointer; }
         .interactive-panel ul { display: grid; gap: 12px; margin-top: 20px; list-style: none; }
         .interactive-panel li { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb; }
-        .login-form { display: grid; gap: 16px; margin-top: 20px; }
-        .login-form label { display: grid; gap: 8px; font-weight: 600; }
-        .login-form input { padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font: inherit; }
-        .login-form button { border: 0; cursor: pointer; }
         .search-empty-state { padding: 24px; text-align: center; color: #748078; background: #fff; border-radius: 12px; }
         .product-detail { width: min(760px, calc(100vw - 32px)); display: grid; grid-template-columns: minmax(180px, .85fr) 1.15fr; gap: 28px; }
         .product-detail-image { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: #f3f4f6; }
@@ -35,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryCards = [...document.querySelectorAll('.category-card')];
     const productCards = [...document.querySelectorAll('.product-card')];
     const cartButton = document.querySelector('.cart-btn');
-    const loginButton = document.querySelector('.text-btn');
     const moreButton = document.querySelectorAll('.text-btn')[1];
     let cart = [];
 
@@ -106,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closePanels = () => document.querySelectorAll('.interactive-panel').forEach((panel) => panel.remove());
 
-    const openPanel = (type) => {
+    const openPanel = () => {
         closePanels();
         const panel = document.createElement('section');
         panel.className = 'interactive-panel';
@@ -114,22 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.setAttribute('aria-modal', 'true');
         panel.tabIndex = -1;
 
-        if (type === 'login') {
-            panel.innerHTML = `<button class="panel-close" aria-label="Close">×</button><h2>Welcome back</h2><p>Sign in to save your items and track orders.</p><form class="login-form"><label>Email or mobile number<input required type="text" autocomplete="username"></label><button class="btn btn-primary" type="submit">Continue</button></form><p class="signup-login">New to Ekart? <a href="signup.html">Create an account</a></p>`;
-        } else {
-            panel.innerHTML = '<button class="panel-close" aria-label="Close">×</button><h2>More on Flipkart</h2><p>Explore orders, wishlists, customer care, and seller services.</p>';
-        }
+        panel.innerHTML = '<button class="panel-close" aria-label="Close">×</button><h2>More on Flipkart</h2><p>Explore orders, wishlists, customer care, and seller services.</p>';
 
         document.body.append(panel);
         panel.focus();
         const closeButton = panel.querySelector('.panel-close');
         closeButton.textContent = String.fromCharCode(215);
         closeButton.addEventListener('click', closePanels);
-        panel.querySelector('.login-form')?.addEventListener('submit', (event) => {
-            event.preventDefault();
-            closePanels();
-            showToast('Login is ready to connect to your backend.');
-        });
     };
 
     const openProductDetails = (card) => {
@@ -238,9 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateCart();
-    loginButton.addEventListener('click', () => openPanel('login'));
-    moreButton.addEventListener('click', () => openPanel('more'));
-    if (window.location.hash === '#login') loginButton.click();
+    moreButton.addEventListener('click', openPanel);
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') closePanels();
     });
